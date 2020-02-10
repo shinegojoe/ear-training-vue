@@ -38,6 +38,19 @@ class SoundModel{
         
         return audio_list
     }
+
+    get_single_note(note){
+        note = note.replace("#", "Sharp")
+        const path = `assert/sounds/piano/${note}.mp3`
+        const audio = new Howl({
+            src: [path]
+        })
+        return audio
+
+
+
+
+    }
 }
 
 export {SoundModel}

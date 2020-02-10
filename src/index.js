@@ -6,6 +6,7 @@
 import img from '../images/6.png'
 import img2 from '../images/05.jpg'
 import img3 from '../images/4.jpg'
+import btn_google_signin_dark_focus_web from '../images/btn_google_signin_dark_focus_web.png'
 
 // import mp3 from '../sounds/A4.mp3'
 
