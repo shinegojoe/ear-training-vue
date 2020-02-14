@@ -2,3 +2,5 @@
 /assert
 /images
 /node_modules
+/helpers/google_api_helper.js
+/src/helpers/google_api_helper.js

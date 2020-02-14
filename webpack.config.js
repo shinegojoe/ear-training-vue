@@ -3,6 +3,11 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { VueLoaderPlugin } = require('vue-loader')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+require("@babel/register");
+const BabelTransfromRuntime = require("@babel/plugin-transform-runtime")
+
+
+
 
 
 
@@ -19,6 +24,9 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
+        // BabelTransfromRuntime,
+        // "@babel/plugin-transform-runtime"
+        // new babel_transfrom_runtime()
         // new HtmlWebpackPlugin()
     ],
     resolve: {
@@ -68,6 +76,18 @@ module.exports = {
                     {loader: 'vue-loader'}
                 ]
 
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        // plugins: ["@babel/plugin-transform-runtime"]
+
+                    }
+                }
             }
         ]
     }

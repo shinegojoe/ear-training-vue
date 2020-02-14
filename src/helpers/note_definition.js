@@ -18,6 +18,8 @@ class NoteDefinitionBuilder{
                 index_to_note[note_index] = note_name
             }
         }
+        note_to_index['empty_note'] = -1
+        index_to_note[-1] = 'empty_note'
         return {note_to_index, index_to_note}
     }
 

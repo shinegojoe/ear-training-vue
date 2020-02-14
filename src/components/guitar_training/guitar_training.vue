@@ -128,3 +128,6 @@ export default {
 }
 </script>
 
+<style lang="sass" src="@/sass/3-modules/guitar_training.sass">
+
+</style>
