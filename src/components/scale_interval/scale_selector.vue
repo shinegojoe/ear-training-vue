@@ -1,14 +1,17 @@
 <template>
     <div id="scale-selector-wrap">
         <h1>Step2: Select Scales</h1>
-        <div v-for="(key, val) in scale_interval_map" :key="key">
+        <div id="scale-list-wrap">
+            <div class="scale-item" v-for="(key, val) in scale_interval_map" :key="key">
             <input type="checkbox" :value="val" v-model="selected_scale_list">
             <label>{{val}}</label>
+            </div>
         </div>
-        <span>Checked names: {{ selected_scale_list }}</span>
-        <div id="ans-btn-wrap">
+        
+        <!-- <span>Checked names: {{ selected_scale_list }}</span> -->
+        <!-- <div id="ans-btn-wrap">
             <button v-for="scale in selected_scale_list" :key="scale" @click="ans_btn_click(scale)">{{scale}}</button>
-        </div>
+        </div> -->
 
         
     </div>
@@ -39,17 +42,13 @@ export default {
 
     },
 
-    filters: {
-        qqscale: function(val){
-            const scale = scale_interval_map[val]
-            return scale
-        }
-    },
-    methods: {
-        ans_btn_click(scale){
-            console.log("ans", scale)
-        },
-    },
+    // filters: {
+    //     qqscale: function(val){
+    //         const scale = scale_interval_map[val]
+    //         return scale
+    //     }
+    // },
+    
     computed: {
         selected_scale_list: {
             get: function(){

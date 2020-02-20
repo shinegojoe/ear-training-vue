@@ -1,24 +1,29 @@
 <template>
     <div id="root-note-selector-wrap">
         <h1>Step1: Select Root note</h1>
-        <select v-model="selected">
-            <option v-for="(option, index) in root_note_option" :key="index" v-bind:value="option.value">
-                {{option.text}}
-            </option>
-        </select>
-        <input type="checkbox" id="random-checkbox" v-model="is_random">
-        <label for="random-checkbox">random note {{ is_random }}</label>
-        <span>The root note {{selected}}</span>
+        <div>
+            <select v-model="selected">
+                <option v-for="(option, index) in root_note_option" :key="index" v-bind:value="option.value">
+                    {{option.text}}
+                </option>
+            </select>
+            <span>The root note is {{selected}}</span>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="random-checkbox" v-model="is_random">
+            <label for="random-checkbox">random note is {{ is_random | random_mode}}</label>
+        </div>
 
-        <select v-model="play_mode">
-            <option v-for="pm in play_mode_option" :key="pm" v-bind:value="pm">
-                {{pm}}
-            </option>
-        </select>
-        <span>The root note {{play_mode}}</span>
-
-
-
+        <div>
+            <select v-model="play_mode">
+                <option v-for="pm in play_mode_option" :key="pm" v-bind:value="pm">
+                    {{pm}}
+                </option>
+            </select>
+            <span>The play mode is {{play_mode}}</span>
+        </div>
+    
     </div>
     
 </template>
@@ -48,6 +53,17 @@ export default {
         this.play_mode_option = this.setting_block_presenter.get_play_mode_option()
         // console.log(setting_block_model)
         // console.log(this.setting_block_presenter)
+    },
+
+    filters: {
+        random_mode: function(is_random){
+            if(is_random){
+                return 'On'
+            }
+            else{
+                return 'Off'
+            }
+        }
     },
 
     computed: {
