@@ -39,7 +39,6 @@ class YoutubeApi{
                 "Authorization": `Bearer ${this.access_token}`
             }
             axios.get(url, {headers:headers}).then((res)=>{
-                console.log(res)
                 resolve(res.data.items)
             })
 

@@ -3,11 +3,21 @@
 <template>
     <div id="find-key-container">
         <!-- <div id="my-signin2"></div> -->
-        <video_iframe></video_iframe>
+        <div id="find-key-container-right">
+            <video_iframe></video_iframe>
+            <piano_panel></piano_panel>
+        </div>
+       
+        <div id="find-key-container-left">
+            <google_signin></google_signin>
+            <play_list></play_list>
+        </div>
+
+        <!-- <video_iframe></video_iframe>
         <piano_panel></piano_panel>
         <google_signin></google_signin>
-
-        <play_list></play_list>
+        <play_list></play_list> -->
+        
 
        
         <!-- <div v-for="(play_list, index) in play_lists" :key="index">
