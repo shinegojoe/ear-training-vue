@@ -21,7 +21,6 @@ class ScaleListModel{
     }
 
     set_selected_scale_list(val){
-        console.log('this store', this.store)
         this.store.commit('scale_interval/selected_scale_list', val)
     }
 

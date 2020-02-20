@@ -2,7 +2,7 @@
     <div id="root-note-selector-wrap">
         <h1>Step1: Select Root note</h1>
         <select v-model="selected">
-            <option v-for="(option, index) in options" :key="index" v-bind:value="option.value">
+            <option v-for="(option, index) in root_note_option" :key="index" v-bind:value="option.value">
                 {{option.text}}
             </option>
         </select>
@@ -25,43 +25,62 @@
 
 <script>
 import {root_note_option} from '@/helpers/scale_interval_map.js'
+import {SettingBlockModel} from '@/models/scale_interval_model/setting_block_model.js'
+import {SettingBlockPresenter} from '@/presenters/scale_interval_presenter/setting_block_presenter.js'
+
+
 export default {
     data: function(){
         return {
             // is_random: false,
             // selected: "C4",
-            options: root_note_option,
-            play_mode_option: [
-                'same-time', 'individual'
-            ]
+            setting_block_presenter: undefined,
+            options: undefined,
+            play_mode_option: undefined
         }
     },
+
+    created: function(){
+        
+        const setting_block_model = new SettingBlockModel(this.$store, root_note_option)
+        this.setting_block_presenter = new SettingBlockPresenter(setting_block_model)
+        this.root_note_option = this.setting_block_presenter.get_root_note_list()
+        this.play_mode_option = this.setting_block_presenter.get_play_mode_option()
+        // console.log(setting_block_model)
+        // console.log(this.setting_block_presenter)
+    },
+
     computed: {
         selected:{
             get: function(){
-                return this.$store.state.scale_interval.root_note
+                return this.setting_block_presenter.get_root_note()
+                // return this.$store.state.scale_interval.root_note
             },
             set: function(val){
-                console.log('xxx', val)
-                this.$store.commit('scale_interval/root_note', val)
+                this.setting_block_presenter.set_root_note(val)
+                // this.$store.commit('scale_interval/root_note', val)
             }
         },
         is_random: {
             get: function(){
-                return this.$store.state.scale_interval.is_random_note
+                return this.setting_block_presenter.get_root_note_mode()
+                // return this.$store.state.scale_interval.is_random_note
             },
             set: function(val){
-                this.$store.commit('scale_interval/is_random_note', val)
+                this.setting_block_presenter.set_root_note_mode(val)
+                // this.$store.commit('scale_interval/is_random_note', val)
             }
 
         },
         play_mode: {
             get: function(){
-                return this.$store.state.scale_interval.play_mode
+                return this.setting_block_presenter.get_play_mode()
+                // return this.$store.state.scale_interval.play_mode
 
             },
             set: function(val){
-                this.$store.commit('scale_interval/play_mode', val)
+                this.setting_block_presenter.set_play_mode(val)
+                // this.$store.commit('scale_interval/play_mode', val)
             }
         }
     }
