@@ -9,7 +9,7 @@ class NoteDefinitionBuilder{
     build_data(){
         const note_to_index = {}
         const index_to_note = {}
-        for(let i=0; i<3; i++){
+        for(let i=0; i<4; i++){
             for(let j=0; j<this.note_list.length; j++){
                 const note_name = `${this.note_list[j]}${i+3}`
                 const note_index = 12*i + j
