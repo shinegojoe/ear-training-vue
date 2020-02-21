@@ -24,32 +24,35 @@ describe('the SettingBlockModel test', function(){
             // root_note_option.push({'qqq': 123})
             const root_note_list = model.get_root_note_list()
             for(let obj of root_note_list){
-                if(!('text' in obj)){
-                    assert.isOk(false)
-                }
-                if(!('value' in obj)){
-                    assert.isOk(false)
-                }
+                assert.hasAllDeepKeys(obj, ['text', 'value'])
+                // if(!('text' in obj)){
+                //     assert.isOk(false)
+                // }
+                // if(!('value' in obj)){
+                //     assert.isOk(false)
+                // }
             }
-            assert.isOk(true, 'ok')
+            // assert.isOk(true, 'ok')
         })
 
 
-        it('add {"xxx": 234} in fake data, is not ok', function(){
-            const fake_data = Object.assign([], root_note_option)
-            fake_data.push({'xxx': 234})
-            const model = new SettingBlockModel(store, fake_data)
-            // root_note_option.push({'qqq': 123})
-            const root_note_list = model.get_root_note_list()
-            for(let obj of root_note_list){
-                if(!('text' in obj)){
-                    assert.isNotOk(false)
-                }
-                if(!('value' in obj)){
-                    assert.isNotOk(false)
-                }
-            }
-        })
+        // it('add {"xxx": 234} in fake data, is not ok', function(){
+        //     const fake_data = Object.assign([], root_note_option)
+        //     fake_data.push({'xxx': 234})
+        //     const model = new SettingBlockModel(store, fake_data)
+        //     // root_note_option.push({'qqq': 123})
+        //     const root_note_list = model.get_root_note_list()
+        //     for(let obj of root_note_list){
+        //         assert.hasAllDeepKeys(obj, ['text', 'value'])
+
+        //         // if(!('text' in obj)){
+        //         //     assert.isNotOk(false)
+        //         // }
+        //         // if(!('value' in obj)){
+        //         //     assert.isNotOk(false)
+        //         // }
+        //     }
+        // })
     })
 
     describe('get_play_mode_option test', function(){

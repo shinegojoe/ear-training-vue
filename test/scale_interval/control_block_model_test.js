@@ -49,73 +49,13 @@ describe('The ConrolBlockModel Test', function(){
             const audio_list = model._get_audio_list(root_note, scale_interval)
             // const audio_list = ['1', 2]
             for(let audio of audio_list){
-                if(!('play' in audio)){
-                    assert.fail('have no play property')
-                }
+                assert.property(audio, 'play')
+                // if(!('play' in audio)){
+                //     assert.fail('have no play property')
+                // }
             }
-            assert.isOk(true)
+            // assert.isOk(true)
         })
     })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
-
-    // describe('', function(){
-    //     /*
-       
-    //     */
-    //     it('', function(){
-           
-    //     })
-    // })
-
    
 })
