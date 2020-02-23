@@ -10,7 +10,7 @@
     "test": "mocha --require @babel/register"
   },
   "mocha": {
-    "spec": "test/find_key/*.js"
+    "spec": "test/chord_classification_models_test/ans_btn_selector_model_test.js"
   },
   "keywords": [],
   "author": "",

@@ -3,61 +3,44 @@
         <button id="play-btn" @click="play">Play</button>
         <button id="help-btn" @click="help">Help</button>
         <button id="next-btn" @click="next">Next</button>
-
     </div>
 </template>
 
 <script>
-import {SoundModel} from '@/models/sound_model.js'
-import {PlayModel} from '@/models/play_model.js'
+
+
+import {ControlBtnsModel} from '@/models/chord_classification_models/control_btns_model.js'
+import {ControlBtnsPresenter} from '@/presenters/chord_classification_presenters/control_btns_presenter.js'
+import {array_op} from '@/helpers/array_operation.js'
+import {note_definition, chord_definition} from '@/helpers/note_definition.js'
+
+
 
 export default {
 
-    created: function(){
-        const sound_model = new SoundModel()
-        this.play_model = new PlayModel(sound_model)
-        
-    },
-
     data: function(){
         return {
-            play_model: undefined
+            play_model: undefined,
+            control_btns_presenter: undefined,
         }
+    },
+
+    created: function(){
+        const control_btns_model = new ControlBtnsModel(this.$store, array_op, note_definition, chord_definition)
+        this.control_btns_presenter = new ControlBtnsPresenter(control_btns_model)
     },
 
     methods: {
         play: function(){
-            // const chord_data = this.$store.getters['ans_btns/test']()
-            // console.log("chord_data", chord_data)
-            // console.log("x", this.$store.getters['ans_btns/test']())
-            // const audio_list = this.sound_model.get_audio(chord_data["chord_type"], chord_data["root_note"])
-            // const audio_list = this.sound_model.get_audio(chord_data.chord_type, chord_data.root_note)
-            // for(let audio of audio_list){
-            //     audio.play()
-            // }
-            this.play_model.play(this.$store)
-            const chord_data = this.play_model.help()
-            this.$store.commit('ans_btns/chord_data', chord_data)
+            this.control_btns_presenter.play()
         },
         help: function(){
-            // console.log("help")
-            const chord_data = this.play_model.help()
-            // console.log("chord data", chord_data)
-            this.$store.commit('ans_btns/chord_data', chord_data)
-            this.$store.commit('ans_btns/is_help', true)
+            this.control_btns_presenter.help()
+            // console.log(chord_type_ans)
         },
         next: function(){
-            // console.log("next")
-            this.play_model.next(this.$store)
-            const chord_data = this.play_model.help()
-            this.$store.commit('ans_btns/chord_data', chord_data)
+            this.control_btns_presenter.next()
         }
     },
-    
-    
 }
 </script>
-
-<style lang="sass">
-
-</style>

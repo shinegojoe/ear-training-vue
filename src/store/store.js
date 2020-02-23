@@ -4,6 +4,7 @@ import ans_btns from './modules/ans_btns.js'
 import find_key from './modules/find_key.js'
 import scale_interval from './modules/scale_inrerval.js'
 import scale_singing from './modules/scale_singing.js'
+import chord_classification from './modules/chord_classification.js'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ export const store = new Vuex.Store({
         ans_btns,
         find_key,
         scale_interval,
-        scale_singing
+        scale_singing,
+        chord_classification
     }
 })

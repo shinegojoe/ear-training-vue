@@ -1,53 +1,38 @@
 <template>
-    <div id="help-wrap" v-bind:class="index_up_class">
-        <!-- <h1>Help hint</h1> -->
-        <transition name="hint" v-on:enter="enter(enter_done)">
-            <div id="help-msg" v-if="is_help">{{chord_data}}</div>
+
+    <div id="help-wrap">
+        <transition name="hint" v-on:after-enter="afterEnter">
+            <!-- <div id="help-msg" v-if="is_help">{{chord_data}}</div> -->
+            <div id="help-msg" v-if="is_help">
+                <div>{{help_msg}}</div>
+            </div>
         </transition>
     </div>
 </template>
 
 <script>
 export default {
-    data: function(){
-        return {
-           
-            index_up_class: "z-index-last",
-            // chord_data: [],
-            // is_help: false
-        }
-    },
-
-
+    
     methods: {
-        enter_done: function(){
-            // console.log(this)
-            // this.is_help = false
-            this.$store.commit('ans_btns/is_help', false)
+        test: function(){
+            this.$store.commit('chord_classification/is_help', true)
 
         },
-        enter: function(done){
-            // console.log("el", el)
-            // console.log("done", done)
-            this.index_up_class = ""
-
-            done()
-            setTimeout(()=>{
-                this.index_up_class = "z-index-last"
-            }, 1000)
-        },
+        afterEnter: function(ele){
+            console.log('after_enter')
+            this.$store.commit('chord_classification/is_help', false)
+            
+        }
        
     },
     computed: {
-        chord_data(){
-            const chord_data = this.$store.state.ans_btns.chord_data
-            const root_note = chord_data.root_note.replace("4", "")
-            const msg = `${root_note}${chord_data.chord_type}`
-            return msg
-
-        },
+    
         is_help(){
-            return this.$store.state.ans_btns.is_help
+            return this.$store.state.chord_classification.is_help
+        },
+
+        help_msg(){
+            return this.$store.state.chord_classification.help_msg
         }
     },
         
