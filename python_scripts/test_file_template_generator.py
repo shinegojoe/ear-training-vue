@@ -27,34 +27,34 @@ class TestFileTemplateGenerator:
 
             self._write_import(model_name=model_name)
             # self._write_file(self.output_path, model_name)
-            self._write_first_descrbe(model_name)
+            self._write_first_describe(model_name)
             with open(path, 'r') as f:
                 data = f.readlines()
                 self._parse_property(data=data)
             self._write_file(self.output_path, '})')
+
     def _check_contains_string(self, line):
         for s in self.string_filter_list:
             if s in line:
                 return False
         return True
 
-    def _write_first_descrbe(self, name):
+    def _write_first_describe(self, name):
         with open(self.output_path, 'a') as f:
             # line = "describe('' test', function(){".format('')
-            line = "describe('{} test', function()){{".format(name)
+            line = "describe('{} test', function(){{".format(name)
             f.write(line + '\n')
-
 
     def _write_file(self, file_path, property):
         with open(file_path, 'a') as f:
             if property == '})':
                 f.write(property)
             else:
-                line1 = "   describe('{}', function(){{".format(property)
+                line1 = "    describe('{}', function(){{".format(property)
                 f.write(line1 + '\n')
-                line2 = "       it('', function(){"
-                line3 = "       })"
-                line4 = "   })"
+                line2 = "        it('', function(){"
+                line3 = "        })"
+                line4 = "    })"
                 f.write(line2 + '\n')
                 f.write(line3 + '\n')
                 f.write(line4 + '\n')
@@ -69,18 +69,16 @@ class TestFileTemplateGenerator:
                     line = line.strip()
                     print(line)
                     self._write_file(self.output_path, line)
+
     def run(self):
         self._load_files()
 
 
-
-
 def main():
-    input_folder = 'test_folder'
-    output_folder = 'output'
+    input_folder = '/home/taka/projects/webpack-vue/src/models/chord_classification_models'
+    output_folder = '/home/taka/projects/webpack-vue/test/chord_classification_models_test'
     file_generator = TestFileTemplateGenerator(input_folder=input_folder, output_folder=output_folder)
     file_generator.run()
-
 
 
 if __name__ == "__main__":
