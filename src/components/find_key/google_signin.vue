@@ -1,6 +1,6 @@
 <template>
     <div id="google-signin-wrap">
-        <h1>Sep1:SignIn With Google</h1>
+        <h1>SignIn With Google</h1>
         <button id="my-signin2" @click="sign_in"></button>
         <!-- <button @click="sign_out">signOut</button> -->
     </div>

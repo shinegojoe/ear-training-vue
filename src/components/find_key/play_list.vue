@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="play-lists-wrap">
-            <h1>Step2: Select Your Play List</h1>
+            <h1>Select Play List</h1>
             <div v-for="(play_list, index) in play_lists" :key="index">
                 <div id="play-item-wrap">
                     <div @click="play_list_click(play_list)">{{play_list | play_list_title}}</div>    
@@ -10,7 +10,7 @@
         </div>
         
         <div id="video-list-wrap">
-            <h1>Step3: Select Video</h1>
+            <h1>Select Video</h1>
             <div v-for="(video, index) in video_list" :key="index">
                 <div class="video-item-wrap" @click="video_click(video)">
                     <img v-bind:src="video | video_img">

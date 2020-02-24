@@ -1,5 +1,10 @@
 
-$font-color: rgb(25, 102, 119)
+// $font-color: rgb(25, 102, 119)
+$font-color: rgb(204, 72, 72)
+
+// font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
+
 
 =btn-style($w, $h, $font-size, $margin)
     // display: flex
@@ -19,6 +24,11 @@ $font-color: rgb(25, 102, 119)
     color: $font-color
     // cursor: pointer
     font-size: $font-size
+    font-weight: bold
+
+
+
+
 
 body, html 
     height: 100%
@@ -28,9 +38,12 @@ body, html
 body
     background-image: url("/assert/images/1000.jpeg")
     background-position: center
-    background-repeat: no-repeat
+    // background-repeat: no-repeat
     background-size: cover
     background-position-x: -120px
+    font-family: "Helvetica", "Arial","LiHei Pro", sans-serif
+
+
     
 
     
@@ -49,6 +62,8 @@ body
         font-size: 26px
         margin-left: 6px
         color: $font-color
+
+
 
 
   
@@ -114,7 +129,7 @@ body
                 margin-top: 20px
                 font-size: 30px
                 // color: rgb(230, 230, 230)
-                color: rgb(25, 102, 119)
+                color: $font-color
                 // text-align: center
                 // vertical-align: center
     .hint-enter
@@ -162,6 +177,61 @@ body
             .ans-btn-wrap
                 button
                  +btn-style($w: 100px, $h: 40px, $font-size: 10px, $margin: 4px)
+
+
+@media screen and ( min-width: 800px )
+    body
+        background-position-x: 0px
+    #chord-classification-container
+        margin-top: 40px
+        align-items: center
+
+        h1
+            font-size: 50px
+
+        hr
+            width: 80%
+
+        #root-note-selector-container
+            text-align: center
+            #btn-list-wrap
+                .note-btn-wrap
+                    button
+                        +btn-style($w: 120px, $h: 60px, $font-size:18px, $margin: 4px)
+
+
+        #chord-type-selector-container
+            text-align: center
+            #btn-list-wrap
+                .chord-btn-wrap
+                    button
+                        +btn-style($w: 120px, $h: 60px, $font-size: 18px, $margin: 4px)
+
+        #control-btn-wrap
+            button
+                +btn-style($w: 120px, $h: 60px, $font-size: 18px, $margin: 4px)
+
+        #ans-btn-selector-container
+            // margin: auto
+            h1
+                text-align: center
+            #ans-btn-list-wrap
+                .ans-btn-wrap
+                    button
+                        +btn-style($w: 120px, $h: 60px, $font-size: 18px, $margin: 4px)
+
+        #help-wrap
+            #help-msg
+                width: 400px
+                height: 200px
+                div
+                    margin-top: 40px
+                    font-size: 50px
+
+        
+
+
+        
 
 
     

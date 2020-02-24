@@ -7,7 +7,7 @@ class GoogleSignModel{
 
     gapi_load(gapi, client_id){
         const gapi_init_promise = new Promise((resolve, reject)=>{
-
+            console.log('gapi_init', gapi)
             gapi.load('auth2', ()=>{
                 let auth2 = gapi.auth2.init({
                     // client_id: this.api_info.get_client_id(),
@@ -22,8 +22,8 @@ class GoogleSignModel{
                 }).catch(function(err){
                     reject(err)
                 })
-                // console.log('auth', auth2)
-                // this.auth2 = auth2
+                console.log('auth', auth2)
+                this.auth2 = auth2
             })
 
         })

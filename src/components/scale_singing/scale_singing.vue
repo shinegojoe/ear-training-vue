@@ -2,7 +2,7 @@
     <div id="scale-singing-container">
         <!-- <h1>Scale Singing</h1> -->
         <scale_singing_setting></scale_singing_setting>
-        <hr>
+        
         <pratice_list></pratice_list>
     </div>
 </template>

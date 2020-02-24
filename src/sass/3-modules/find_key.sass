@@ -1,5 +1,6 @@
-$font-color: rgb(25, 102, 119)
 $h1-font-size: 26px
+$font-color: rgb(204, 72, 72)
+$h1-font-size-web: 40px
 
 #find-key-container-left
     display: flex
@@ -86,8 +87,16 @@ $h1-font-size: 26px
     #play-item-wrap
         border: 2px solid #dedede
         background-color: #f1f1f1
+        // background-color: transparent
+        opacity: 90%
+        height: 30px
         border-radius: 5px
         margin: 5px 0px
+        font-size: 25px
+        color: $font-color
+        // color: rgb(25, 102, 119)
+
+        text-align: center
     button
         
 
@@ -109,6 +118,9 @@ $h1-font-size: 26px
         justify-content: center
         border: 2px solid #dedede
         background-color: #f1f1f1
+        opacity: 90%
+        color: $font-color
+        // background-color: transparent
         border-radius: 5px
         // padding: 10px
         margin: 2px 0
@@ -125,8 +137,12 @@ $h1-font-size: 26px
     #find-key-container
         display: flex
         flex-direction: row-reverse
-        width: 1000px
+        // width: 1000px
+        width: 1100px
         margin: auto
+
+        h1
+            font-size: $h1-font-size-web
 
         #find-key-container-left
             margin: 10px 0px

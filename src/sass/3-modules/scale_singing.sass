@@ -1,5 +1,8 @@
-$font-color: rgb(25, 102, 119)
 $h1-font-size: 26px
+
+$font-color: rgb(204, 72, 72)
+
+$h1-font-size-web: 50px
 
 #scale-singing-container
     margin: 10px 20px
@@ -44,15 +47,16 @@ $h1-font-size: 26px
 #pratice-list-wrap
     .item-wrap
         margin: 5px 0px
-        border: 2px solid #dedede
-        background-color: #f1f1f1
+        // border: 2px solid #dedede
+        // background-color: #f1f1f1
         border-radius: 5px
         background-color: transparent
-        // width: 200
+        width: 200px
+        color: $font-color
         // background-color: red
-        span
-            margin-left: 2px
-            color: $font-color
+        // span
+        //     margin-left: 2px
+        //     color: $font-color
 
 @media screen and ( min-width: 800px )
     #scale-singing-container
@@ -60,27 +64,36 @@ $h1-font-size: 26px
         justify-content: center
         // margin: auto
         hr
-            display: none
+            // display: none
         h1
-            font-size: 40px
+            font-size: $h1-font-size-web
         #scale-singing-setting-wrap
-            margin: 20px 20px
+            margin: 40px 40px
+
+            #play-time-interval-wrap
+                input
+                    width: 35px
+                    font-size: 25px
+            
             label
                 font-size: 25px
             select
-                width: 40px
-                // height: 25px
+                font-size: 25px
 
         #pratice-list-wrap
-            margin: 25px 20px
+            margin: auto 40px
+
             .item-wrap
-                width: 200px
-                height: 30px
+                width: 300px
+                height: 60px
                 display: flex
                 justify-content: center
                 align-items: center
-                span
-                    font-size: 20px
+                color: $font-color
+                font-size: 25px
+                background-color: transparent
+                // span
+                //     font-size: 25px
                     
 
         

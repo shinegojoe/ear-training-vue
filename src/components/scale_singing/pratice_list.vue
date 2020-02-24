@@ -1,9 +1,10 @@
 <template>
     <div id="pratice-list-wrap">
          <div v-for="(scale, index) in pratice_list" :key="index">
-            <div class="item-wrap" @click="item_click(scale)">
+            <!-- <div class="item-wrap" @click="item_click(scale)">
                 <span>pratice{{index+1}}</span>
-            </div>
+            </div> -->
+            <button class="item-wrap" @click="item_click(scale)">pratice{{index+1}}</button>
         </div>
 
     </div>
