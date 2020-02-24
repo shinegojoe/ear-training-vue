@@ -1,6 +1,6 @@
 <template>
     <div id="root-note-selector-wrap">
-        <h1>Step1: Select Root note</h1>
+        <h1>Select Root note</h1>
         <div>
             <select v-model="selected">
                 <option v-for="(option, index) in root_note_option" :key="index" v-bind:value="option.value">

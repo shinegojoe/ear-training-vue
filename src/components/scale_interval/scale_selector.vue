@@ -1,10 +1,10 @@
 <template>
     <div id="scale-selector-wrap">
-        <h1>Step2: Select Scales</h1>
+        <h1>Select Scales</h1>
         <div id="scale-list-wrap">
             <div class="scale-item" v-for="(key, val) in scale_interval_map" :key="key">
-            <input type="checkbox" :value="val" v-model="selected_scale_list">
-            <label>{{val}}</label>
+                <input type="checkbox" :value="val" v-model="selected_scale_list">
+                <label>{{val}}</label>
             </div>
         </div>
         

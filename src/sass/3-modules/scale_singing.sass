@@ -1,4 +1,5 @@
-
+$font-color: rgb(25, 102, 119)
+$h1-font-size: 26px
 
 #scale-singing-container
     margin: 10px 20px
@@ -10,7 +11,8 @@
 
 #scale-singing-setting-wrap
     h1
-        font-size: 20px
+        font-size: $h1-font-size
+        color: $font-color
     
     #play-time-interval-wrap
         margin: 10px 0px
@@ -19,16 +21,24 @@
         input
             margin: 5px 0px 5px 0px
             width: 25px
+            color: $font-color
         label
+            color: $font-color
             // margin: 5px 0px 10px 0px
     
     #start-note-wrap
         select
             margin: 5px 0px 5px 0px
+            color: $font-color
+        label
+            color: $font-color
 
     #end-note-wrap
         select
             margin: 5px 0px 5px 0px
+            color: $font-color
+        label
+            color: $font-color
 
 
 #pratice-list-wrap
@@ -42,6 +52,7 @@
         // background-color: red
         span
             margin-left: 2px
+            color: $font-color
 
 @media screen and ( min-width: 800px )
     #scale-singing-container

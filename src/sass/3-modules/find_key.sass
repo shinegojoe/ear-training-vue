@@ -1,3 +1,5 @@
+$font-color: rgb(25, 102, 119)
+$h1-font-size: 26px
 
 #find-key-container-left
     display: flex
@@ -9,7 +11,8 @@
     // background-size: cover
     padding: 0 25px
     h1
-        font-size: 20px
+        font-size: $h1-font-size
+        color: $font-color
 
 #find-key-container-right
     display: flex
@@ -42,6 +45,7 @@
     margin: auto
     #white
         // position: absolute
+        display: flex
         button
             width: 35px
             height: 140px
@@ -60,7 +64,7 @@
             margin: 0px 5px
     #black
         button:nth-child(0n+3)
-            margin-left: 50px
+            margin-left: 30px
 
 #google-signin-wrap
     margin: 10px 0px

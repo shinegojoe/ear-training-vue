@@ -1,15 +1,15 @@
 <template>
     <div id="scale-singing-setting-wrap">
         <div id="play-time-interval-wrap">
-            <h1>Step1: Set Play Time Interval</h1>
+            <h1>Set Play Time Interval</h1>
+            <label>The Play Time Interval Is </label>
             <input v-model="play_time_interval">
             <br>
-            <label>The Play Time Interval Is {{play_time_interval}}</label>
-
         </div>
+        <hr>
 
         <div id="start-note-wrap">
-            <h1>Step2: Set Start Note</h1>
+            <h1>Set Start Note</h1>
             <select v-model="start_note">
                 <option v-for="val in note_list" :key="val">
                     {{val}}
@@ -17,18 +17,18 @@
             </select>
             <label>The Selected note Is {{start_note}}</label>
         </div>
+        <hr>
 
         <div id="end-note-wrap">
-            <h1>Step3: Set End Note</h1>
+            <h1>Set End Note</h1>
             <select v-model="end_note">
                 <option v-for="val in note_list" :key="val">
                     {{val}}
                 </option>
             </select>
             <label>The Selected note Is {{end_note}}</label>
-
-
         </div>
+        
        
     </div>
 </template>

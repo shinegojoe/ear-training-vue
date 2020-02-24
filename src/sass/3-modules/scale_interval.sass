@@ -1,14 +1,15 @@
 
 
-body
-    //background: url("https://s22.postimg.cc/gzyyouldd/grey-paper-texture.jpg") center top
-    // background: url("/assert/images/06.jpg") center top
+$font-color: rgb(25, 102, 119)
+$h1-font-size: 26px
+
 
 
 #scale-interval-container
     margin: 0px 30px
     h1
-        font-size: 30px
+        font-size: $h1-font-size
+        color: $font-color
 
     
     
@@ -16,6 +17,10 @@ body
         margin: 10px 0px 5px 0px
         div
             margin: 5px 0px
+            color: $font-color
+        
+        select
+            color: $font-color
         
 
 
@@ -27,6 +32,8 @@ body
         // flex-direction: column
         // align-items: center
         #scale-list-wrap
+            label
+                color: $font-color
             // margin: auto
             
             // background-color: blue
@@ -36,6 +43,7 @@ body
         flex-direction: column
         button
             background-color: transparent
+            color: $font-color
 
     #control-btn-wrap
         display: flex
@@ -45,6 +53,7 @@ body
             background-color: transparent
             width: 102px
             height: 60px
+            color: $font-color
 
 @media screen and ( min-width: 800px )
     #scale-interval-container

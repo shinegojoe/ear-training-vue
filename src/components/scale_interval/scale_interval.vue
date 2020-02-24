@@ -2,11 +2,14 @@
     <div id="scale-interval-container">
         <div id="scale-interval-container-left">
             <root_note_selector></root_note_selector>
+            <hr>
             <scale_selector></scale_selector>
+            <hr>
         </div>
 
         <div id="scale-interval-container-right">
             <ans_btns></ans_btns>
+            
             <control_btns></control_btns>
         </div>
        
