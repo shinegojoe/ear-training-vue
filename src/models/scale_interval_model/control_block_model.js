@@ -38,17 +38,26 @@ class ControlBlockModel{
         const note_list = [root_note, scale_note]
         const audio_list = []
         for(let note of note_list){
-            console.log('note', note)
             note = note.replace("#", "Sharp")
             const path = `assert/sounds/piano/${note}.mp3`
             const audio = new Howl({
                 src: [path]
             })
-                
             audio_list.push(audio)
-
         }
         return audio_list
+    }
+
+    _set_ans_scale(ans_scale){
+        this.store.commit('scale_interval/set_ans_scale', ans_scale)
+    }
+
+    _get_ans_scale(){
+        return this.store.state.scale_interval.ans_scale
+    }
+
+    _set_help_msg(msg){
+        this.store.commit('scale_interval/set_help_msg', msg)
     }
 
     _get_random_scale(scale_list){
@@ -72,11 +81,9 @@ class ControlBlockModel{
                 audio.play()
                 await delay(play_state.delay_time)
             }
-
         }
         catch(e){
             console.log('error', e)
-
         }
     }
 
@@ -92,7 +99,6 @@ class ControlBlockModel{
         }
         
         return delay_time
-
     }
 
     play(){
@@ -100,7 +106,11 @@ class ControlBlockModel{
             const is_random_note = this._get_is_random_note()
             const root_note = this._get_root_note(is_random_note)
             const selected_list = this._get_selected_list()
-            const audio_list = this._get_audio_list(root_note, selected_list)
+
+            const scale = this._get_random_scale(selected_list)
+            this._set_ans_scale(scale)
+
+            const audio_list = this._get_audio_list(root_note, scale)
             const play_mode = this._get_play_mode()
             let delay_time = this._get_delay_time(play_mode)
             this.last_play_state = {
@@ -113,7 +123,10 @@ class ControlBlockModel{
     }
 
     help(){
-
+        this.store.commit('scale_interval/is_help', true)
+        const ans_scale = this._get_ans_scale()
+        this._set_help_msg(ans_scale)
+        
     }
 
     next(){

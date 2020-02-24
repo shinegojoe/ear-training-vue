@@ -6,7 +6,9 @@ const state = {
     selected_scale_list: [],
     ans_scale: undefined,
     play_mode: 'individual',
-    is_next: true
+    is_next: true,
+    is_help: false,
+    help_msg: undefined,
 
 
 }
@@ -21,7 +23,7 @@ const mutations = {
     selected_scale_list(state, selected_scale_list){
         state.selected_scale_list = selected_scale_list
     },
-    ans_scale(state, ans_scale){
+    set_ans_scale(state, ans_scale){
         state.ans_scale = ans_scale
     },
     play_mode(state, play_mode){
@@ -29,7 +31,15 @@ const mutations = {
     },
     is_next(state, bool){
         state.is_next = bool
+    },
+    is_help(state, bool){
+        state.is_help = bool
+    },
+
+    set_help_msg(state, msg){
+        state.help_msg = msg
     }
+
     
 
 }

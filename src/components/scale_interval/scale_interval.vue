@@ -1,5 +1,7 @@
 <template>
     <div id="scale-interval-container">
+        <help_hint></help_hint>
+
         <div id="scale-interval-container-left">
             <root_note_selector></root_note_selector>
             <hr>
@@ -9,9 +11,9 @@
 
         <div id="scale-interval-container-right">
             <ans_btns></ans_btns>
-            
             <control_btns></control_btns>
         </div>
+
        
        
     </div>
@@ -22,6 +24,7 @@ import root_note_selector from './root_note_selector.vue'
 import scale_selector from './scale_selector.vue'
 import control_btns from './control_btns.vue'
 import ans_btns from './ans_btns.vue'
+import help_hint from './help_hint.vue'
 
 
 export default {
@@ -29,7 +32,8 @@ export default {
         root_note_selector,
         scale_selector,
         control_btns,
-        ans_btns
+        ans_btns,
+        help_hint
     }    
 }
 </script>

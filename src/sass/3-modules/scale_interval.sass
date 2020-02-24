@@ -11,8 +11,6 @@ $h1-font-size: 26px
         font-size: $h1-font-size
         color: $font-color
 
-    
-    
     #root-note-selector-wrap
         margin: 10px 0px 5px 0px
         div
@@ -22,8 +20,6 @@ $h1-font-size: 26px
         select
             color: $font-color
         
-
-
 
     #scale-selector-wrap
         margin: 5px 0px 5px 0px
@@ -54,6 +50,41 @@ $h1-font-size: 26px
             width: 102px
             height: 60px
             color: $font-color
+
+    #help-hint-container
+        position: absolute
+        // margin: auto
+        left: 0
+        right: 0 
+        margin-left: auto 
+        margin-right: auto 
+        margin-top: 300px
+
+        #help-msg
+            margin-top: 40px
+            margin-left: auto 
+            margin-right: auto
+            width: 200px
+            height: 100px
+        
+            border: 3px solid $font-color
+
+            border-radius: 5px
+            background-color: rgb(43, 43, 43)
+            display: flex
+            div
+                margin-left: auto 
+                margin-right: auto
+                margin-top: 20px
+                font-size: 30px
+                // color: rgb(230, 230, 230)
+                color: rgb(25, 102, 119)
+                // text-align: center
+                // vertical-align: center
+    .hint-enter
+        opacity: 0
+    .hint-enter-active
+        transition: opacity 1s
 
 @media screen and ( min-width: 800px )
     #scale-interval-container

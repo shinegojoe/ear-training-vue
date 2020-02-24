@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {ScaleIntervalModel} from '@/models/scale_interval_model.js'
+// import {ScaleIntervalModel} from '@/models/scale_interval_model.js'
 import {ControlBlockModel} from '@/models/scale_interval_model/control_block_model.js'
 import {ControlBlockPresenter} from '@/presenters/scale_interval_presenter/control_block_presenter.js'
 
@@ -20,7 +20,6 @@ import {scale_interval_map, root_note_option} from '@/helpers/scale_interval_map
 export default {
     data: function(){
         return {
-            scale_interval_model: undefined,
             control_block_presenter: undefined,
         }
     },
@@ -31,15 +30,14 @@ export default {
 
         },
         help(){ 
-            this.scale_interval_model.help(this.$store)
+            this.control_block_presenter.help()
         },
         next(){
-            this.scale_interval_model.next(this.$store)
+            this.control_block_presenter.next()
         }
     },
 
     created: function(){
-        this.scale_interval_model = new ScaleIntervalModel(this.$store.state)
 
         const control_block_model = new ControlBlockModel(this.$store, note_definition, scale_interval_map, root_note_option, Howl)
         this.control_block_presenter = new ControlBlockPresenter(control_block_model)

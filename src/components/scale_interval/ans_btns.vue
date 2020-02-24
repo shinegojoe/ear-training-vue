@@ -23,6 +23,7 @@ export default {
     methods: {
         ans_btn_click(scale){
             console.log("ans", scale)
+            this.ans_btn_presenter.check_ans(scale)
         },
     },
     computed: {
